@@ -37,7 +37,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             app:layout_constraintStart_toEndOf="@+id/opinion_ellipse"
-            app:layout_constraintTop_toBottomOf="@+id/bar_name"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name"
             app:srcCompat="@drawable/star_card_opinion"
             tools:ignore="ImageContrastCheck" />
 
@@ -57,7 +57,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/opinion_letter"
+            android:id="@+id/txt_letra"
             android:layout_width="35dp"
             android:layout_height="0dp"
             android:layout_marginStart="11dp"
@@ -107,10 +107,10 @@
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="@+id/opinion_star"
             app:layout_constraintStart_toEndOf="@+id/opinion_star"
-            app:layout_constraintTop_toBottomOf="@+id/bar_name" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
         <TextView
-            android:id="@+id/bar_name"
+            android:id="@+id/txt_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="173dp"
@@ -130,7 +130,7 @@
             android:layout_marginStart="33dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@+id/opinion_star"
-            app:layout_constraintTop_toBottomOf="@+id/bar_name"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name"
             app:srcCompat="@drawable/ellipse_small" />
 
         <ImageView

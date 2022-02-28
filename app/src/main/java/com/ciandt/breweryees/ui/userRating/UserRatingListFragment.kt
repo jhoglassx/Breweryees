@@ -55,6 +55,10 @@ class UserRatingListFragment : Fragment() {
                         else -> list.sortedBy { it.name }
                     }
                 )
+                when(sortby){
+                    2 -> binding.txtSortBy.text = "Oredenar por: Nota"
+                    else -> binding.txtSortBy.text = "Oredenar por: Nome"
+                }
                 binding.txtQtd.text = "${list.size} resultados"
             }
         }

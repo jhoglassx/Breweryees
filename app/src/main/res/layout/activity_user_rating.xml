@@ -9,8 +9,8 @@
     tools:context=".ui.UserRatingActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        app:navigationIcon="@drawable/ion_beer"
-        app:title="@string/app_name"
+        app:navigationIcon="@drawable/ic_seta_back"
+        app:title="Cervejarias avaliadas"
         app:contentInsetEndWithActions="0dp"
         android:id="@+id/my_toolbar"
         android:layout_width="0dp"

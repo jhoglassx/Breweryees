@@ -20,18 +20,16 @@ interface BreweriesService {
 
 
     @GET("/breweries")
-    suspend fun getBreweriesCity(
-        @Query(
-            value = "by_city",
-            encoded = true
-        ) by_city: String
-    ): ApiResponse<List<BreweriesModel>>
+    suspend fun getBreweriesCity(@Query(value = "by_city", encoded = true ) by_city: String): ApiResponse<List<BreweriesModel>>
 
     @GET("/breweries/{breweryId}")
     suspend fun getBreweriesDetails(@Path( value = "breweryId", encoded = true) breweryId: String): ApiResponse<BreweriesModel>
 
     @GET("/breweries/photos/{breweryId}")
     suspend fun getBreweriesPhotos(@Path( value = "breweryId", encoded = true) breweryId: String): ApiResponse<List<BreweriesPhotoModel>>
+
+    @GET("/breweries/myEvaluations/{email}")
+    suspend fun getBreweriesUserEvaluations(@Path( value = "email", encoded = true) email: String): ApiResponse<List<BreweriesModel>>
 
 
 }

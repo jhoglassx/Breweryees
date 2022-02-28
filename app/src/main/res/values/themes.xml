@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.BreweryBees" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Theme.BreweryBees" parent="Theme.MaterialComponents.Light">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/yellow_bees</item>
         <item name="colorPrimaryVariant">@color/yellow_bees</item>

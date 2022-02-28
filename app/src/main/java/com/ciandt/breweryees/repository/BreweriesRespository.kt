@@ -15,4 +15,6 @@ interface BreweriesRespository {
     suspend fun getBreweriesDetails(breweriesId:String): BreweriesModel
 
     suspend fun getBreweriesPhotos(breweriesId:String): List<BreweriesPhotoModel>
+
+    suspend fun getBreweriesUserEvaluations(email:String) : List<BreweriesModel>
 }

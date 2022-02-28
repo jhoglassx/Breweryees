@@ -1,5 +1,6 @@
 package com.ciandt.breweryees.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
-        var menuInflater : MenuInflater = menuInflater
+        val menuInflater : MenuInflater = menuInflater
 
         menuInflater.inflate(R.menu.main_menu,menu)
 
@@ -55,6 +56,8 @@ class MainActivity : AppCompatActivity() {
         val res_id = item.itemId
         if(res_id == R.id.action_rating){
             Toast.makeText(this,"Rating Option",Toast.LENGTH_LONG).show()
+            val intent = Intent(this,UserRatingActivity::class.java)
+            startActivity(intent)
         }else if(res_id == R.id.action_favoritos){
             Toast.makeText(this,"Favoritos Option",Toast.LENGTH_LONG).show()
         }

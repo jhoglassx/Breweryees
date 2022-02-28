@@ -23,7 +23,7 @@ class BreweriesRepositoryImp(private val service: BreweriesService): BreweriesRe
         }.onException {
             data = listOf(BreweriesModel())
         }
-        return data!!
+        return data
     }
 
     override suspend fun getBreweriesCity(search: String): List<BreweriesModel> {
@@ -83,5 +83,17 @@ class BreweriesRepositoryImp(private val service: BreweriesService): BreweriesRe
         return data!!
     }
 
+    override suspend fun getBreweriesUserEvaluations(email: String): List<BreweriesModel> {
+        val response = service.getBreweriesUserEvaluations(email)
+        var data : List<BreweriesModel> = listOf<BreweriesModel>()
 
+        response.onSuccess {
+            data = this.data
+        }.onError {
+            data = listOf<BreweriesModel>()
+        }.onException {
+            data = listOf<BreweriesModel>()
+        }
+        return data
+    }
 }

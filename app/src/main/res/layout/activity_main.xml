@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.MainActivity"
-    android:background="@color/background"
-    >
+    android:background="@color/background">
 
     <com.google.android.material.appbar.MaterialToolbar
         app:navigationIcon="@drawable/ion_beer"

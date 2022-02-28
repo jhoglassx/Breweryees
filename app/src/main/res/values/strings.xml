@@ -28,4 +28,19 @@
     <string name="drink">Um Brinde!</string>
     <string name="exit">Exit</string>
     <string name="errorAlert">Email Invalid</string>
+    <string name="nome_email_com">nome@email.com</string>
+    <string name="sort_user_rating">sort user rating</string>
+    <string name="qtd_result">0 resultado</string>
+    <string name="user_rating_list_title">Cervejarias que você avaliou</string>
+    <string name="rating_item_logo">A</string>
+    <string name="rating_item_title">Cervejaria A</string>
+    <string name="rating_item_value">5,0</string>
+    <string name="rating_email_title">Cervejarias que você avaliou</string>
+    <string name="rating_emal_sub_title">Informe seu e-mail para consultar as cervejarias avaliadas.</string>
+    <string name="ckb_lembrar_email">Lembrar meu e-mail para futuras consultas</string>
+    <string name="btn_confirm">CONFIRMAR</string>
+    <string name="ckb_rating_sort_nota">Nota (maior para menor)</string>
+    <string name="ckb_rating_sort_nome">Nome (A a Z)</string>
+    <string name="rating_sort_title">Ordenar Por</string>
+    <string name="ratin_list_sortBy">Oredenar por: Nota</string>
 </resources>

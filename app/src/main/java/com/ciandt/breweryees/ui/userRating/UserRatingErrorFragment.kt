@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.ciandt.breweryees.R
 
 
-class UserRatingFragment : Fragment() {
+class UserRatingErrorFragment : Fragment() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +20,6 @@ class UserRatingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user_rating_list, container, false)
+        return inflater.inflate(R.layout.fragment_user_rating_error, container, false)
     }
 }

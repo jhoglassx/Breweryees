@@ -4,16 +4,24 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ciandt.breweryees.Model.BreweriesModel
 import com.ciandt.breweryees.repository.BreweriesRespository
 import com.google.gson.Gson
+import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.mockk
+import io.mockk.verify
 import junit.runner.Version.id
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+import org.hamcrest.MatcherAssert
+import org.junit.After
+import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.koin.core.component.getScopeId
+import java.util.Collections.list
 
 class UserRatingViewModelTest {
 
@@ -32,17 +40,49 @@ class UserRatingViewModelTest {
         viewModel = UserRatingViewModel(repository)
     }
 
+    @After
+    fun cleanup(){
+        Dispatchers.resetMain()
+    }
+
     @Test
-    fun consultUserRating()= runTest{
+    fun consultUserRating_isReturn_repositoty_getBreweriesUserEvaluations()= runTest{
 
-
+        coEvery { repository.getBreweriesUserEvaluations("teste@teste.com") } returns fakeListUserRating()
 
         viewModel.getBreweriesUserRating("teste@teste.com")
+
+        coVerify { repository.getBreweriesUserEvaluations(any()) }
+    }
+
+    @Test
+    fun userRating_liveData_sucess()= runTest{
+
+        coEvery { repository.getBreweriesUserEvaluations("teste@teste.com") } returns fakeListUserRating()
+
+        viewModel.getBreweriesUserRating("teste@teste.com")
+
+        assertTrue(viewModel.listBreweriesUserRating.value is List<BreweriesModel>)
+    }
+
+    @Test
+    fun userRating_liveData_listEmpty()= runTest{
+
+        coEvery { repository.getBreweriesUserEvaluations("teste@teste.com") } returns listOf<BreweriesModel>()
+
+        viewModel.getBreweriesUserRating("teste@teste.com")
+
+        assertTrue(viewModel.listBreweriesUserRating.value is List<BreweriesModel>)
     }
 
 
-    fun fakeListUserRating() : MutableList<BreweriesModel>{
-        listOf {
+
+
+
+    private fun fakeListUserRating() : MutableList<BreweriesModel>{
+        val list : MutableList<BreweriesModel> = mutableListOf()
+
+        list.add(0,
             BreweriesModel(
                 id = "lazy-horse-brewing-ohiowa",
                 name = "Lazy Horse Brewing",
@@ -61,7 +101,9 @@ class UserRatingViewModelTest {
                 average = 4.0,
                 size_evaluations = 39,
                 photos = null
-            ),
+            )
+        )
+        list.add(1,
             BreweriesModel(
                 id = "jaw-brew-milngavie",
                 name = "Jaw Brew",
@@ -80,7 +122,9 @@ class UserRatingViewModelTest {
                 average = 3.8,
                 size_evaluations = 14,
                 photos = null
-            ),
+            )
+        )
+        list.add(2,
             BreweriesModel(
                 id = "radiant-pig-craft-beers-new-york",
                 name = "Radiant Pig Craft Beers",
@@ -99,7 +143,9 @@ class UserRatingViewModelTest {
                 average = 3.9,
                 size_evaluations = 7,
                 photos = null
-            ),
+            )
+        )
+        list.add(3,
             BreweriesModel(
                 id = "death-avenue-new-york",
                 name = "Death Avenue",
@@ -118,7 +164,9 @@ class UserRatingViewModelTest {
                 average = 4.0,
                 size_evaluations = 3,
                 photos = null
-            ),
+            )
+        )
+        list.add(4,
             BreweriesModel(
                 id = "alphabet-city-brewing-co-new-york",
                 name = "Alphabet City Brewing Co",
@@ -137,7 +185,9 @@ class UserRatingViewModelTest {
                 average = 3.6,
                 size_evaluations = 49,
                 photos = null
-            ),
+            )
+        )
+        list.add(5,
             BreweriesModel(
                 id = "birreria-eataly-new-york",
                 name = "Birreria @ Eataly",
@@ -157,5 +207,8 @@ class UserRatingViewModelTest {
                 size_evaluations = 11,
                 photos = null
             )
-        }
+        )
+
+        return list
     }
+}

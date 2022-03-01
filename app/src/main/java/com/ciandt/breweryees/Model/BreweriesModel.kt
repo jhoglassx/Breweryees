@@ -20,3 +20,5 @@ data class BreweriesModel(
     var photos: List<String>? = null
 )
 
+
+

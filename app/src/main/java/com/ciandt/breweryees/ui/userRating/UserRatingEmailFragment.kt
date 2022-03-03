@@ -41,11 +41,13 @@ class UserRatingEmailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
-        val savedEmail = sharedPref.getString("breweriesEmail",null)
+        var email = sharedPref.getString("breweriesEmail",null)
 
-        binding.txtEmail.setText(savedEmail)
+        binding.txtEmail.setText(email)
+        if(!email.isNullOrEmpty()){
+            binding.btnConfirm.isEnabled = Email.validEmail(email)
+        }
 
-        var email: String? = null
         binding.txtEmail.addTextChangedListener{
             email = binding.txtEmail.text.toString()
             binding.btnConfirm.isEnabled = Email.validEmail(email!!)
@@ -54,7 +56,6 @@ class UserRatingEmailFragment : Fragment() {
         binding.btnConfirm.setOnClickListener{
             saveEmail(email!!)
             btnConfirmOnClick(email!!)
-            Toast.makeText(context,email, Toast.LENGTH_LONG).show()
         }
     }
 
